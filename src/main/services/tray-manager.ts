@@ -1,16 +1,17 @@
+import { join } from 'path'
 import { Tray, Menu, nativeImage, app } from 'electron'
 import type { BrowserWindow } from 'electron'
 import type { DictationState } from '../types/ipc'
 
-// Minimal 16x16 data-URL icons — replace with real assets later
-const ICON_IDLE = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAASElEQVQ4jWNgGAWDHfwnIBcgZsD/AwT/B2LiBFAZEAAAAABJRU5ErkJggg==`
-const ICON_RECORDING = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAASElEQVQ4jWNgGAX/BwAAAgABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcAGAAZABoAGwAcAB0AHgAfAAAAAAAAAAAAAAAAAAAAAAAA5gwCRwAAAABJRU5ErkJggg==`
+function iconPath(name: string): string {
+  return join(app.getAppPath(), 'resources', name)
+}
 
 export class TrayManager {
   private tray: Tray | null = null
 
   init(mainWindow: BrowserWindow): void {
-    const icon = nativeImage.createFromDataURL(ICON_IDLE).resize({ width: 16, height: 16 })
+    const icon = nativeImage.createFromPath(iconPath('icon.png'))
     this.tray = new Tray(icon)
     this.tray.setToolTip('archflow')
 
@@ -32,8 +33,8 @@ export class TrayManager {
 
   setState(state: DictationState): void {
     if (!this.tray) return
-    const dataUrl = state === 'recording' || state === 'transcribing' ? ICON_RECORDING : ICON_IDLE
-    const icon = nativeImage.createFromDataURL(dataUrl).resize({ width: 16, height: 16 })
+    const name = state === 'recording' || state === 'transcribing' ? 'icon-recording.png' : 'icon.png'
+    const icon = nativeImage.createFromPath(iconPath(name))
     this.tray.setImage(icon)
     this.tray.setToolTip(`archflow — ${state}`)
   }
