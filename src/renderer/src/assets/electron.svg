@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 251 209">
+  <g fill="none" fill-rule="evenodd">
+    <path d="M0 0h251v209H0z"/>
+    <g transform="translate(46 1)">
+      <ellipse cx="80" cy="104" fill="#9FEAF9" opacity=".3" rx="80" ry="80"/>
+      <g stroke="#9FEAF9">
+        <ellipse cx="79.9" cy="103.9" rx="46" ry="80"/>
+        <ellipse cx="79.9" cy="103.9" rx="80" ry="46"/>
+      </g>
+      <circle cx="80" cy="104" r="10" fill="#9FEAF9"/>
+    </g>
+  </g>
+</svg>

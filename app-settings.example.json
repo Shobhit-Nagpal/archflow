@@ -1,0 +1,4 @@
+{
+  "whisperCppBinary": "/path/to/whisper.cpp/build/bin/whisper-cli",
+  "whisperCppModelPath": "/path/to/whisper.cpp/models/ggml-base.en.bin"
+}
