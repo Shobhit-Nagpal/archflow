@@ -38,7 +38,6 @@ export interface AutoTypeResult {
 }
 
 export type WhisperBackend = 'mock' | 'openai-api' | 'whisper-cpp' | 'faster-whisper'
-export type AutoTypeTool = 'xdotool' | 'ydotool'
 
 export interface AppSettings {
   autoTypeEnabled: boolean
@@ -49,7 +48,6 @@ export interface AppSettings {
   whisperCppBinary?: string
   whisperCppModelPath?: string
   fasterWhisperModelPath?: string
-  autoTypeTool: AutoTypeTool
 }
 
 export type DictationState = 'idle' | 'recording' | 'transcribing' | 'result' | 'error'
