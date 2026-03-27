@@ -6,8 +6,7 @@ import type { AppSettings } from '../types/ipc'
 const DEFAULT_SETTINGS: AppSettings = {
   autoTypeEnabled: true,
   hotkey: 'CommandOrControl+Shift+Space',
-  whisperBackend: 'whisper-cpp',
-  autoTypeTool: 'xdotool'
+  whisperBackend: 'whisper-cpp'
 }
 
 export class SettingsStore {

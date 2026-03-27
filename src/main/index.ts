@@ -30,7 +30,6 @@ app.whenReady().then(() => {
     mainWindow,
     transcriptionService,
     autoTypeService,
-    hotkeyManager,
     settingsStore,
     trayManager
   )
